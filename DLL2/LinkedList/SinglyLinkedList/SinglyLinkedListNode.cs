@@ -1,4 +1,4 @@
-﻿namespace DataStructures.LinkedList
+﻿namespace DataStructures.LinkedList.SinglyLinkedList
 {
     public class SinglyLinkedListNode<T>
     {

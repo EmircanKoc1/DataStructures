@@ -2,18 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace DataStructures.LinkedList
+namespace DataStructures.LinkedList.SinglyLinkedList
 {
     public class SinglyLinkedList<T> : IEnumerable<T>
     {
-        public SinglyLinkedList() 
+        public SinglyLinkedList()
         {
-                
+
         }
         public SinglyLinkedList(IEnumerable<T> collection)
         {
             foreach (var item in collection)
-                this.AddFirst(item);
+                AddFirst(item);
 
         }
 
@@ -113,7 +113,7 @@ namespace DataStructures.LinkedList
             //newNode.Next = node;
             //beforeNode.Next = newNode;
 
-            while (current is not null)
+            while (current.Next is not null)
             {
                 if (current.Next == node)
                 {
@@ -140,5 +140,85 @@ namespace DataStructures.LinkedList
         {
             return GetEnumerator();
         }
+
+        public T RemoveFirst()
+        {
+            if (isHeadNull)
+                throw new Exception("Nothing to remove");
+            var firstValue = Head.Value;
+            Head = Head.Next;
+            return firstValue;
+        }
+
+        public T RemoveLast()
+        {
+            var current = Head;
+            SinglyLinkedListNode<T> prev = null;
+            while (current.Next is not null)
+            {
+                prev = current;
+                current = current.Next;
+
+            }
+            var lastValue = prev.Next.Value;
+            prev.Next = null;
+            return lastValue;
+        }
+        public void Remove(T value)
+        {
+            if (isHeadNull)
+                throw new Exception("");
+
+            if (value is null)
+                throw new ArgumentException();
+
+            var current = Head;
+            SinglyLinkedListNode<T> prev = null;
+
+            do
+            {
+                if (current.Value.Equals(value))
+                {
+                    //son elemanmı
+                    if (current.Next is null)
+                    {
+                        //head silinmek isteniyor
+                        if (prev is null)
+                        {
+                            Head = null;
+                            return;
+                        }
+                        else
+                        {
+                            prev.Next = null;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        if (prev is null)
+                        {
+                            Head = Head.Next;
+                            return;
+                        }
+                        else
+                        {
+                            prev.Next = current.Next;
+                            return;
+                        }
+                    }
+
+                }
+                prev = current;
+                current = current.Next;
+
+            } while (current is not null);
+
+            throw new ArgumentException();
+
+
+
+        }
+
     }
 }

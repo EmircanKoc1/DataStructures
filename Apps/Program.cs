@@ -1,6 +1,5 @@
-﻿using DataStructures.LinkedList;
+﻿using DataStructures.LinkedList.DoublyLinkedList;
 using System;
-using System.Linq;
 
 namespace Apps
 {
@@ -8,16 +7,19 @@ namespace Apps
     {
         static void Main(string[] args)
         {
-            var arr = new char[] { 'a', 'b', 'c', };
-            var linkedList = new SinglyLinkedList<char>(arr);
+        
+            var list = new DoublyLinkedList<int>();
+            
+            list.AddFirst(1);
+            list.AddFirst(2);
+            list.AddFirst(3);
+         
 
-            var rnd = new Random();
-            var list = Enumerable.Range(1, 10).OrderBy(x => rnd.Next());
-            foreach (var item in list)
-            {
-                Console.WriteLine(item);
-            }
+            //1 2 3 4
+            //1 2 9999 3 4
+            list.AddBefore(list.Head,new DoublyLinkedListNode<int>(9999));
             Console.WriteLine();
+
         }
     }
 }
