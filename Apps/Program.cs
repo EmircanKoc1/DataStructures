@@ -1,5 +1,6 @@
 ﻿using DataStructures.LinkedList.DoublyLinkedList;
 using System;
+using System.Collections.Generic;
 
 namespace Apps
 {
@@ -13,11 +14,13 @@ namespace Apps
             list.AddFirst(1);
             list.AddFirst(2);
             list.AddFirst(3);
-         
 
-            //1 2 3 4
-            //1 2 9999 3 4
-            list.AddBefore(list.Head,new DoublyLinkedListNode<int>(9999));
+            
+            list.AddBefore(list.Head.Next.Next,new DoublyLinkedListNode<int>(9999));
+
+            list.Delete(list.Head.Next.Next.Next);
+         
+            //list.Delete(9999);
             Console.WriteLine();
 
         }
