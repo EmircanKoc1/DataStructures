@@ -1,5 +1,7 @@
 ﻿using System;
 using DataStructures.Stack;
+using DataStructures.Tree.BinaryTree;
+using DataStructures.Tree.BST;
 
 namespace Apps
 {
@@ -7,22 +9,10 @@ namespace Apps
     {
         static void Main(string[] args)
         {
-            var charset = new char[]
-            {
-                'a','b','c'
-            };
-            var stack1 = new Stack<int>();
-            var stack2 = new Stack<int>(StackType.LinkedList);
-            foreach (var c in charset)
-            {
-                stack1.Push(c);
-                stack2.Push(c);
-            }
-            Console.WriteLine(stack1.Peek());
-            Console.WriteLine(stack1.Pop());
+            var bst = new BST<int>(new int[] {23,16,45,3,22,37,99});
 
-            Console.WriteLine(stack2.Peek());
-            Console.WriteLine(stack2.Pop());
+            Console.WriteLine(bst.FindMax(bst.Root).Value);
+            Console.WriteLine(bst.RMAX(bst.Root).Value);
         }
     }
 }
