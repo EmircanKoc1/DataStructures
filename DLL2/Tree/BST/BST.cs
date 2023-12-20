@@ -95,17 +95,6 @@ namespace DataStructures.Tree.BST
             return current;
         }
 
-
-        //public Node<T> RMAX(Node<T> root)
-        //{
-        //    var current = root;
-
-        //    if (current.Right is not null)
-        //        current = RMAX(current.Right);
-
-        //    return current; ;
-        //}
-
         public Node<T> Find(Node<T> root, T key)
         {
             var current = root;
@@ -130,18 +119,18 @@ namespace DataStructures.Tree.BST
             return current;
         }
 
-        public Node<T> Remove(Node<T> root,T key)
+        public Node<T> Remove(Node<T> root, T key)
         {
             if (root is null)
                 return null;
 
-            if (key.CompareTo(root.Value) < 0 )
+            if (key.CompareTo(root.Value) < 0)
             {
-                root.Left = Remove(root.Left,key);
+                root.Left = Remove(root.Left, key);
             }
             else if (key.CompareTo(root.Value) > 0)
             {
-                root.Right = Remove(root.Right,key);
+                root.Right = Remove(root.Right, key);
             }
             else
             {
@@ -159,19 +148,21 @@ namespace DataStructures.Tree.BST
                 root.Value = FindMax(root.Right).Value;
                 root.Right = Remove(root.Right, root.Value);
             }
-                return root;
+            return root;
 
         }
+
+      
 
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new BSTEnumerator<T>(Root);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
 
 
