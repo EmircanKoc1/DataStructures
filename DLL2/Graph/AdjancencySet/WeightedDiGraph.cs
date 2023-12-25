@@ -81,7 +81,7 @@ namespace DataStructures.Graph.AdjancencySet
         public bool HasEdge(T source, T dest)
         {
             return vertices[source].OutEdges.ContainsKey(vertices[dest]) &&
-                vertices[dest].OutEdges.ContainsKey(vertices[source]);
+                vertices[dest].InEdges.ContainsKey(vertices[source]);
         }
 
         public void RemoveEdge(T source, T dest)
