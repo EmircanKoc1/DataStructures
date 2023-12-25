@@ -2,11 +2,11 @@
 
 namespace DataStructures.Graph
 {
-    public class Edge<T, C> : IEdge<T>
-        where C : IComparable
+    public class Edge<T, TW> : IEdge<T>
+        where TW : IComparable
     {
         private object weight;
-        public Edge(IGraphVertex<T> target, C weight)
+        public Edge(IGraphVertex<T> target, TW weight)
         {
             TargetVertex = target;
             this.weight = weight;
