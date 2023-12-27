@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DataStructures.Heap
 {
-    public abstract class BinaryHeap<T> : IEnumerable<T>
+    public  class BinaryHeap<T> : IEnumerable<T>
         where T : IComparable
     {
 
