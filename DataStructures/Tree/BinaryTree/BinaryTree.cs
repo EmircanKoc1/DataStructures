@@ -210,7 +210,6 @@ namespace DataStructures.Tree.BinaryTree
             .ToList()
             .Count;
 
-
         public void PrintPaths(Node<T> root)
         {
             var path = new T[256];
